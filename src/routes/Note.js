@@ -19,7 +19,7 @@ router.get('/notes/list/:userId', async (req, res) => {
 
 router.get('/notes/list/', async (req, res) => {
         var note = await Note.find(
-        ).sort({ id: 1 });
+        ).sort({ createdAt: -1 });
         res.json(note);
 });
 //Add a note
