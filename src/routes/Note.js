@@ -24,7 +24,7 @@ router.get('/notes/list/', async (req, res) => {
 router.post('/notes/add', async (req, res) => {
 
         await Note.deleteOne({ id: req.body.id });
-        res.json(req.body);
+        
         const newNote = new Note({
                 id: req.body.id,
                 userId: req.body.userId,
