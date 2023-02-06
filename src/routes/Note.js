@@ -16,6 +16,10 @@ router.get('/notes/list/:userId', async (req, res) => {
 });
 
 
+router.get('/notes/list/', async (req, res) => {
+        var note = await Note.find();
+        res.json(note);
+});
 //Add a note
 router.post('/notes/add', async (req, res) => {
 
