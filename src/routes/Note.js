@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
         res.send('Hello Node');
 
 });
-//Get all notes
+//get a note by id
 router.get('/notes/list/:userId', async (req, res) => {
         var note = await Note.find(
                 { userId: req.params.userId }
@@ -15,9 +15,11 @@ router.get('/notes/list/:userId', async (req, res) => {
         res.json(note);
 });
 
+//Get all notes
 
 router.get('/notes/list/', async (req, res) => {
-        var note = await Note.find();
+        var note = await Note.find(
+        ).sort({ id: 1 });
         res.json(note);
 });
 //Add a note
